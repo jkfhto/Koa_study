@@ -75,6 +75,35 @@ Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致�
   - 尽量使用类+类方法的形式编写控制器
   - 严谨的错误处理
 
+## 错误处理
+
+- 什么是错误处理?
+  - 编程语言或计算机硬件中的一种机制
+  - 处理软件或信息系统中出现的异常情况
+- 异常状况有哪些?
+  - 运行时错误（语法没有错误，程序运行时出错），返回500
+  - 逻辑错误，如找不到（404），先决条件失败（用户id不存在，412），无法处理的实体（参数格式不对，422）等
+- 为什么要用错误处理
+  - 防止程序挂掉 try catch捕获异常，错误
+  - 告诉用户错误信息
+  - 便于开发者调试
+
+### Koa自带的错误处理
+
+- 默认会返回404
+- 对于运行时错误，Koa会自动返回500
+- 使用ctx.throw([status], [msg], [properties])：手动抛出一个错误
+  
+  ```javascript
+  ctx.throw(412,'先决条件失败：id对应的数据不存在！');
+  ```
+
+### 错误处理中间件
+
+- [简单的自定义错误处理中间件](./note/error_handling/customize.md)
+- [koa-json-error](./note/error_handling/koa-json-error.md)：捕获错误，并返回json类型的错误对象
+- [koa-parameter](./note/error_handling/koa-parameter.md)：无法处理的实体，参数校验
+
 ## 其他
 
 - HTTP options方法的作用是什么？
