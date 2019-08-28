@@ -38,6 +38,22 @@ Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致�
   ![response](./resources/response.png)
 - [koa-compose](./koa-compose/index.js)：将 koa各个中间件合并执行，结合 next() 就形成了洋葱式模型
 
+## 路由
+
+- 路由是什么？
+  - 决定了不同URL是如何被解析执行的
+  - 在Koa中，是一个中间件
+- 为什么需要路由？
+  - 如果没有路由
+    - 所有请求都做相同的处理
+    - 所有请求都会返回相同的结果
+  - 路由存在的意义
+    - 处理不同的url
+    - 处理不同的HTTP请求方法
+    - 解析url上的参数
+  - 路由中间件
+    - [koa-router](https://github.com/ZijianHe/koa-router)
+
 ## 其他
 
 - HTTP options方法的作用是什么？
