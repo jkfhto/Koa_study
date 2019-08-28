@@ -38,6 +38,15 @@ Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致�
   ![response](./resources/response.png)
 - [koa-compose](./koa-compose/index.js)：将 koa各个中间件合并执行，结合 next() 就形成了洋葱式模型
 
+## 其他
+
+- HTTP options方法的作用是什么？
+  - 检测服务器所支持的请求方法
+  - CORS中的预检请求 允许跨域再发送真实请求
+- koa-router中allowedMethods的作用
+  - 响应options请求，返回支持的请求方法
+  - 返回405（不允许：koa支持的请求方法，但是没有实现）和501（没实现：koa不支持的请求方法）状态码
+
 
 ## 参考
 
