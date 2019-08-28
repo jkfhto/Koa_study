@@ -51,8 +51,29 @@ Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致�
     - 处理不同的url
     - 处理不同的HTTP请求方法
     - 解析url上的参数
-  - 路由中间件
-    - [koa-router](https://github.com/ZijianHe/koa-router)
+- 路由中间件
+  - [koa-router](https://github.com/ZijianHe/koa-router)
+
+## 控制器
+
+- 控制器是什么？
+  - 处理路由分配的任务
+  - 在Koa中，是一个中间件
+- 为什么需要控制器？
+  - [获取HTTP请求参数](./note/controler/get_http_request_parameter.md)
+    - Query String，如：?q=keyword，一般是可选参数，有大小限制，敏感数据传输不安全
+    - Router Params，如：/user/:id，一般是必选参数
+    - Body，如：{name:'hello'}，适合参数多，数据量大安全性要求高的数据
+    - Header，如Accept，cookie等
+  - 处理业务逻辑，（获取数据，操作数据等）
+  - [发送HTTP响应](./note/controler/handlle_http_responses.md)
+    - 发送Status，如200/400等
+    - 发送Body，如：{name:'hello'}
+    - 发送Header，如Allow，Content-Type等
+- 编写控制器最佳实践
+  - 每个资源的控制器放在不同的文件里
+  - 尽量使用类+类方法的形式编写控制器
+  - 严谨的错误处理
 
 ## 其他
 
