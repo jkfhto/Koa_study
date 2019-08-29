@@ -33,17 +33,28 @@ async findById(ctx) {
 
 //新增用户
 async create(ctx) {
+    //参数验证
     ctx.verifyParams({
         name: { type: 'string', required: true },
+        password: { type: 'string', required: true },
     });
-    const user = await new User(ctx.request.body).save();
-    ctx.body = user;
+    const {name} = ctx.request.body;
+    //判断用户是否存在 确保用户名不重复
+    const repeatUser = await User.findOne({name})
+    if (repeatUser){
+        ctx.throw(409,'用户已存在！')
+    }else{
+        const user = await new User(ctx.request.body).save();
+        ctx.body = user;
+    }
 }
 
 //修改指定id用户信息
 async update(ctx) {
+    //参数验证
     ctx.verifyParams({
         name: { type: 'string', required: true },
+        password: { type: 'string', required: true },
     });
     const user = await User.findByIdAndUpdate(ctx.params.id,ctx.request.body);
     if (!user) {

@@ -51,3 +51,4 @@
 
 - [检测用户id是否合法的中间件](./isValidById.md)：针对```CastError: Cast to ObjectId failed for value```的错误处理
 - [查询数据时过滤用户密码等信息](./dml.md)：定义模型（Schema）时设置对象的selelct属性为false，可以在查询数据时过滤相关的数据
+- [用户注册，确保用户名唯一性](./dml.md)：使用```Model.findOne({name})```，查找用户名是否存在，确保唯一性
