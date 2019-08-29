@@ -2,6 +2,8 @@
 
 ```javascript
 const mongoose = require('mongoose');
+const JWT = require('jsonwebtoken');
+
 const { Schema, model } = mongoose;
 
 //定义模型
@@ -71,6 +73,25 @@ async delete(ctx) {
         ctx.throw(404, '用户不存在')
     } else {
         ctx.status = 204;
+    }
+}
+
+//JWT实现用户登录
+async login(ctx) {
+    //参数验证
+    ctx.verifyParams({
+        name: { type: 'string', required: true },
+        password: { type: 'string', required: true },
+    });
+    const user = await User.findOne(ctx.request.body);
+    if (!user) {
+        ctx.throw(401, '用户名或密码错误！')
+    } else {
+        const { _id, name } = user;
+        //生成token 设置过期时间为1天
+        //'jwt-secret'：密钥
+        const token = JWT.sign({ _id, name }, 'jwt-secret', { expiresIn: '1d' });
+        ctx.body = { token };
     }
 }
 ```
