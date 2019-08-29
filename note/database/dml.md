@@ -6,7 +6,11 @@ const { Schema, model } = mongoose;
 
 //定义模型
 const userSchema = new Schema({
+    //查询数据时过滤__v属性
+    __v: { type: Number, select: false },
     name: { type: String, required: true },
+    //select: false 查询数据时过滤用户密码信息
+    password: { type: String, required: true, select: false },
 })
 
 //访问模型
