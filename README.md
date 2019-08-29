@@ -110,7 +110,11 @@ Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致�
 
 ## 用户的认证与授权
 
-- [Session](./note/authorization/session.md)
+- Authentication：用户认证，指的是验证用户的身份，例如你希望以小A的身份登录，那么应用程序需要通过用户名和密码确认你真的是小A。
+  - [Session](./note/authentication_authorization/session.md)
+  - [JWT](./note/authentication_authorization/jwt.md)
+
+- Authorization：授权，指的是确认你的身份之后提供给你权限，例如用户小A可以修改数据，而用户小B只能阅读数据。
 
 ## 其他
 
