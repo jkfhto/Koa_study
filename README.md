@@ -119,6 +119,10 @@ Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致�
 
 - Authorization：授权，指的是确认你的身份之后提供给你权限，例如用户小A可以修改数据，而用户小B只能阅读数据。
 
+## 文件上传
+
+- [图片上传](./note/file_upload/pic.md)
+
 ## 其他
 
 - HTTP options方法的作用是什么？
