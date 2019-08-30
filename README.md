@@ -115,6 +115,7 @@ Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致�
   - [JWT](./note/authentication_authorization/jwt.md)
     - [使用JWT进行用户登录](./note/database/dml.md)
     - [基于JWT 用户认证，授权自定义中间件](./note/authentication_authorization/custom_middleware.md)
+    - [使用koa-jwt中间件 处理用户认证，授权](https://github.com/koajs/jwt)
 
 - Authorization：授权，指的是确认你的身份之后提供给你权限，例如用户小A可以修改数据，而用户小B只能阅读数据。
 
